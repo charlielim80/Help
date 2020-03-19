@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Genaral">
+        <menu>
+            <item
+                android:id="@+id/item"
+                android:icon="@drawable/item"
+                android:title="Item" />
+            <item
+                android:id="@+id/addItem"
+                android:icon="@drawable/additem"
+                android:title="Add Item" />
+            <item
+                android:id="@+id/sync"
+                android:icon="@drawable/sync"
+                android:title="Sync Item" />
+        </menu>
+    </item>
+
+    <item android:title="Support">
+        <menu>
+            <item
+                android:id="@+id/rating"
+                android:icon="@drawable/rating"
+                android:title="Rate App" />
+            <item
+                android:id="@+id/shareApp"
+                android:icon="@drawable/share"
+                android:title="Share App" />
+        </menu>
+    </item>
+
+    <item android:title="Option">
+        <menu>
+            <item
+                android:id="@+id/settings"
+                android:icon="@drawable/setting"
+                android:title="Settings" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/log_out"
+                android:title="Log Out" />
+        </menu>
+    </item>
+</menu>
