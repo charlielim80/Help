@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class NoteDetails extends AppCompatActivity {
+    Intent data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +25,12 @@ public class NoteDetails extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//memunculkan tombol back di pojok atas
 
-        Intent data = getIntent();
+         data = getIntent();
 
         ImageView itemImg = findViewById(R.id.itemImg);
-        TextView itemName = findViewById(R.id.itemName);
-        TextView stock = findViewById(R.id.stock);
-        TextView expDate = findViewById(R.id.expDate);
+        TextView itemName = findViewById(R.id.editItemName);
+        TextView stock = findViewById(R.id.editStock);
+        TextView expDate = findViewById(R.id.editExpDate);
         TextView title = findViewById(R.id.noteDetailsTitle);
 
         itemName.setText(data.getStringExtra("itemName"));
@@ -38,16 +38,17 @@ public class NoteDetails extends AppCompatActivity {
         expDate.setText(data.getStringExtra("expDate"));
         title.setText(data.getStringExtra("titles"));
 
-
-
-
-
-        FloatingActionButton fab = findViewById(R.id.addItemFloat);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent i =  new Intent(view.getContext(),EditItem.class);
+                i.putExtra("itemName",data.getStringExtra("itemName"));
+                i.putExtra("stock",data.getStringExtra("stock"));
+                i.putExtra("expDate",data.getStringExtra("expDate"));
+                i.putExtra("itemId",data.getStringExtra("itemId"));
+                startActivity(i);
+
             }
         });
     }

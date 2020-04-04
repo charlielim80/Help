@@ -42,7 +42,7 @@ public class AddItem extends AppCompatActivity {
         addExpDate = findViewById(R.id.addExpDate);
         progressBar = findViewById(R.id.progressBar);
 
-        FloatingActionButton fab = findViewById(R.id.addItemFloat);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,9 +61,9 @@ public class AddItem extends AppCompatActivity {
                 //Save Item
                 DocumentReference docref = fstore.collection("Items").document();
                 Map<String,Object> item = new HashMap<>();
-                item.put("ItemName",aItemName);
-                item.put("Stock",aStock);
-                item.put("ExpDate",aExpDate);
+                item.put("itemname",aItemName);
+                item.put("stock",aStock);
+                item.put("expdate",aExpDate);
                 docref.set(item).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
